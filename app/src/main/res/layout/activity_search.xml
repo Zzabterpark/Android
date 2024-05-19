@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".SearchActivity">
 
-    <!-- Search Bar -->
     <EditText
         android:id="@+id/searchBar"
         android:layout_width="0dp"
@@ -33,25 +32,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recentSearches"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/recentSearchesLabel"
+        app:layout_constraintTop_toBottomOf="@+id/recentSearchesLabel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" >
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/recentSearch1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:padding="8dp"
-            android:text="실리카겔"
-            android:textAppearance="?attr/textAppearanceBody2" />
-    </LinearLayout>
+<!--    <LinearLayout-->
+<!--        android:id="@+id/recentSearches"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/recentSearchesLabel"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" >-->
+
+<!--    </LinearLayout>-->
     
     <TextView
         android:id="@+id/recommendedTagsLabel"
@@ -74,14 +75,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-    <TextView
-        android:id="@+id/recommendedTag1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:padding="8dp"
-        android:text="#내주변 검색"
-        android:textAppearance="?attr/textAppearanceBody2" />
     </LinearLayout>
 
     <TextView
@@ -105,24 +98,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Add your real-time searches dynamically here -->
-        <TextView
-            android:id="@+id/realtimeSearch1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:padding="8dp"
-            android:text="1. 현역가왕"
-            android:textAppearance="?attr/textAppearanceBody2" />
-
-        <TextView
-            android:id="@+id/realtimeSearch2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:padding="8dp"
-            android:text="2. sg워너비"
-            android:textAppearance="?attr/textAppearanceBody2" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
