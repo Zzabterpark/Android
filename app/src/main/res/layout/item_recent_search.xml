@@ -2,15 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:layout_margin="4dp"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:background="@drawable/search_item_background">
 
     <TextView
-        android:id="@+id/recentSearchText"
+        android:id="@+id/searchTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/tag_bg"
-        android:padding="8dp"
-        android:text="Sample Search"
-        android:textAppearance="?attr/textAppearanceBody1" />
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:padding="8dp" />
 </LinearLayout>
