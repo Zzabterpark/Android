@@ -17,4 +17,8 @@ class SearchViewModel : ViewModel() {
             }
         }
     }
+
+    fun clearAllSearches() {
+        _recentSearches.value = mutableListOf()
+    }
 }

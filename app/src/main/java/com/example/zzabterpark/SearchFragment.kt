@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -25,6 +26,7 @@ class SearchFragment : Fragment() {
 
         val searchBar = view.findViewById<EditText>(R.id.searchBar)
         val recentSearchesRecyclerView = view.findViewById<RecyclerView>(R.id.recentSearches)
+        val clearAllButton = view.findViewById<TextView>(R.id.clearAllButton)
 
         recentSearchesRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         val recentSearchesAdapter = RecentSearchesAdapter()
@@ -48,6 +50,11 @@ class SearchFragment : Fragment() {
             } else {
                 false
             }
+        }
+
+        clearAllButton.setOnClickListener {
+            searchViewModel.clearAllSearches()
+            recentSearchesAdapter.clearSearches()
         }
 
         return view

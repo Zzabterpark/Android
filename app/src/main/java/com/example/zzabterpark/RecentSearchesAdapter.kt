@@ -32,4 +32,9 @@ class RecentSearchesAdapter : RecyclerView.Adapter<RecentSearchesAdapter.ViewHol
         searches.addAll(newSearches)
         notifyDataSetChanged()
     }
+
+    fun clearSearches() {
+        searches.clear()
+        notifyDataSetChanged()
+    }
 }
