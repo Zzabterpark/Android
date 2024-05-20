@@ -17,6 +17,8 @@ import com.example.zzabterpark.SearchViewModel
 class SearchFragment : Fragment() {
 
     private lateinit var searchViewModel: SearchViewModel
+    private lateinit var recentSearchesAdapter: RecentSearchesAdapter
+    private lateinit var noRecentSearchesMessage: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,16 +28,18 @@ class SearchFragment : Fragment() {
 
         val searchBar = view.findViewById<EditText>(R.id.searchBar)
         val recentSearchesRecyclerView = view.findViewById<RecyclerView>(R.id.recentSearches)
+        noRecentSearchesMessage = view.findViewById(R.id.noRecentSearchesMessage)
         val clearAllButton = view.findViewById<TextView>(R.id.clearAllButton)
 
         recentSearchesRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        val recentSearchesAdapter = RecentSearchesAdapter()
+        recentSearchesAdapter = RecentSearchesAdapter()
         recentSearchesRecyclerView.adapter = recentSearchesAdapter
 
         searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
 
-        searchViewModel.recentSearches.observe(viewLifecycleOwner, Observer {
-            recentSearchesAdapter.updateSearches(it)
+        searchViewModel.recentSearches.observe(viewLifecycleOwner, Observer { searches ->
+            recentSearchesAdapter.updateSearches(searches)
+            noRecentSearchesMessage.visibility = if (searches.isEmpty()) View.VISIBLE else View.GONE
         })
 
         searchBar.setOnEditorActionListener { _, actionId, event ->
@@ -54,7 +58,6 @@ class SearchFragment : Fragment() {
 
         clearAllButton.setOnClickListener {
             searchViewModel.clearAllSearches()
-            recentSearchesAdapter.clearSearches()
         }
 
         return view
