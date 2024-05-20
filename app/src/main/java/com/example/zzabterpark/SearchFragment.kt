@@ -1,4 +1,6 @@
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -13,12 +15,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zzabterpark.R
 import com.example.zzabterpark.SearchViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class SearchFragment : Fragment() {
 
     private lateinit var searchViewModel: SearchViewModel
     private lateinit var recentSearchesAdapter: RecentSearchesAdapter
+    private lateinit var realtimeSearchesAdapter: RealtimeSearchesAdapter
     private lateinit var noRecentSearchesMessage: TextView
+    private lateinit var realtimeSearchesTime: TextView
+    private val handler = Handler(Looper.getMainLooper())
+    private val updateTimeRunnable = object : Runnable {
+        override fun run() {
+            updateTimeLabel()
+            handler.postDelayed(this, 30 * 60 * 1000) // 30 minutes
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,18 +41,29 @@ class SearchFragment : Fragment() {
 
         val searchBar = view.findViewById<EditText>(R.id.searchBar)
         val recentSearchesRecyclerView = view.findViewById<RecyclerView>(R.id.recentSearches)
+        val realtimeSearchesRecyclerView = view.findViewById<RecyclerView>(R.id.realtimeSearches)
         noRecentSearchesMessage = view.findViewById(R.id.noRecentSearchesMessage)
         val clearAllButton = view.findViewById<TextView>(R.id.clearAllButton)
+        realtimeSearchesTime = view.findViewById(R.id.realtimeSearchesTime)
 
         recentSearchesRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recentSearchesAdapter = RecentSearchesAdapter()
         recentSearchesRecyclerView.adapter = recentSearchesAdapter
+
+        realtimeSearchesRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        realtimeSearchesAdapter = RealtimeSearchesAdapter()
+        realtimeSearchesRecyclerView.adapter = realtimeSearchesAdapter
 
         searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
 
         searchViewModel.recentSearches.observe(viewLifecycleOwner, Observer { searches ->
             recentSearchesAdapter.updateSearches(searches)
             noRecentSearchesMessage.visibility = if (searches.isEmpty()) View.VISIBLE else View.GONE
+        })
+
+        searchViewModel.realtimeSearches.observe(viewLifecycleOwner, Observer { searches ->
+            val rankedSearches = searches.mapIndexed { index, search -> index + 1 to search }
+            realtimeSearchesAdapter.updateSearches(rankedSearches)
         })
 
         searchBar.setOnEditorActionListener { _, actionId, event ->
@@ -60,6 +84,35 @@ class SearchFragment : Fragment() {
             searchViewModel.clearAllSearches()
         }
 
+        updateTimeLabel()
+        handler.post(updateTimeRunnable)
+
         return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        handler.removeCallbacks(updateTimeRunnable)
+    }
+
+    private fun updateTimeLabel() {
+        val currentTime = Calendar.getInstance().time
+        val sdf = SimpleDateFormat("yyyy.MM.dd HH:mm 기준", Locale.getDefault())
+        val roundedTime = getRoundedTime(currentTime)
+        realtimeSearchesTime.text = sdf.format(roundedTime)
+    }
+
+    private fun getRoundedTime(time: Date): Date {
+        val calendar = Calendar.getInstance()
+        calendar.time = time
+
+        val minutes = calendar.get(Calendar.MINUTE)
+        val roundedMinutes = if (minutes < 30) 0 else 30
+
+        calendar.set(Calendar.MINUTE, roundedMinutes)
+        calendar.set(Calendar.SECOND, 0)
+        calendar.set(Calendar.MILLISECOND, 0)
+
+        return calendar.time
     }
 }
