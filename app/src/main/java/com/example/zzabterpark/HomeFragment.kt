@@ -1,3 +1,4 @@
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zzabterpark.CardItem
+import com.example.zzabterpark.ClassicActivity
+import com.example.zzabterpark.ConcertActivity
+import com.example.zzabterpark.MusicalActivity
 import com.example.zzabterpark.R
+import com.example.zzabterpark.SportsActivity
+import com.example.zzabterpark.TheaterActivity
 
 class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
@@ -61,8 +67,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun navigateToCategory(category: String) {
-        // 여기서 프래그먼트 전환 또는 액티비티 전환 로직을 구현합니다.
-        // 예: fragmentManager?.beginTransaction()?.replace(R.id.fragment_container, TargetFragment())?.commit()
+        when (category) {
+            "Musical" -> startActivity(Intent(context, MusicalActivity::class.java))
+            "Concert" -> startActivity(Intent(context, ConcertActivity::class.java))
+            "Sports" -> startActivity(Intent(context, SportsActivity::class.java))
+            "Classic" -> startActivity(Intent(context, ClassicActivity::class.java))
+            "Theater" -> startActivity(Intent(context, TheaterActivity::class.java))
+        }
     }
-
 }
