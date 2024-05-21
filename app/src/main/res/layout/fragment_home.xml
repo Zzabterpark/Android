@@ -43,8 +43,7 @@
             android:layout_weight="6"
             android:background="@android:color/transparent"
             android:hint="실리카겔 단독 콘서트 ..."
-            android:inputType="text"
-            android:padding="8dp" />
+            android:inputType="text"/>
 
         <ImageView
             android:id="@+id/searchIcon"
@@ -166,7 +165,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="70dp"
                     android:src="@drawable/ic_theater"
-                    android:padding="10dp"/>
+                    android:padding="2dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -176,4 +175,74 @@
             </LinearLayout>
         </TableRow>
     </TableLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:text="장르별 랭킹"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="뮤지컬"
+                android:backgroundTint="#FC5230"
+                android:textColor="@color/white" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="콘서트"
+                android:layout_margin="10dp"
+                android:backgroundTint="#FC5230"
+                android:textColor="@color/white"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="스포츠"
+                android:backgroundTint="#FC5230"
+                android:textColor="@color/white" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="클래식/무용"
+                android:layout_margin="10dp"
+                android:backgroundTint="#FC5230"
+                android:textColor="@color/white" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="연극"
+                android:layout_margin="10dp"
+                android:backgroundTint="#FC5230"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
+
