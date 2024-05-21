@@ -191,10 +191,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="20dp"
                 android:text="장르별 랭킹"
                 android:textStyle="bold"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:textColor="@color/black"
                 android:gravity="center"/>
 
