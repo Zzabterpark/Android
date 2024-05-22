@@ -36,8 +36,11 @@ class HomeFragment : Fragment() {
         }
 
         val cardItems = listOf(
-            CardItem(R.drawable.sample_image1, "SUMMER VACANCE"),
-            CardItem(R.drawable.sample_image2, "MUSIC RESTIVAL")
+            CardItem(R.drawable.card_image1),
+            CardItem(R.drawable.card_image2),
+            CardItem(R.drawable.card_image3),
+            CardItem(R.drawable.card_image4),
+            CardItem(R.drawable.card_image5)
         )
 
         cardAdapter = CardAdapter(cardItems)

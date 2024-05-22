@@ -18,13 +18,11 @@ class CardAdapter(private val cardList: List<CardItem>) :
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val item = cardList[position]
         holder.imageView.setImageResource(item.imageResource)
-        holder.textView.text = item.title
     }
 
     override fun getItemCount(): Int = cardList.size
 
     class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.image)
-        val textView: TextView = itemView.findViewById(R.id.text_title)
     }
 }
