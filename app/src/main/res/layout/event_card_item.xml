@@ -33,6 +33,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Event Date"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/bookButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예매하기"
+            android:backgroundTint="@android:color/holo_red_light"
+            android:textColor="@android:color/white"
+            android:layout_gravity="end"
+            android:layout_marginTop="8dp" />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
