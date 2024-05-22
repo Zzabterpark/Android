@@ -1,0 +1,72 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/dateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="05.22 (수) 18:30"
+        android:textSize="16sp"
+        android:textColor="@android:color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp">
+
+        <ImageView
+            android:id="@+id/teamLogo1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/baseball_team1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" VS "
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/teamLogo2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/baseball_team2" />
+
+        <TextView
+            android:id="@+id/matchInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="키움 히어로즈 VS NC 다이노스"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/venue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="고척스카이돔"
+        android:textSize="14sp"
+        android:textColor="@android:color/holo_blue_light"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/bookButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="예매하기"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>

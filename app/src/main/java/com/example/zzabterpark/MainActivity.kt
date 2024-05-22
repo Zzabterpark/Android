@@ -1,4 +1,5 @@
 package com.example.zzabterpark
+
 import CategoryFragment
 import HomeFragment
 import MyFragment
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,10 +30,16 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, HomeFragment())
-                .commit()
+        if (intent?.getStringExtra("navigateTo") == "HomeFragment") {
+            loadFragment(HomeFragment())
+        } else {
+            loadFragment(HomeFragment())
         }
+    }
+
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 }

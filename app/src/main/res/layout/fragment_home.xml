@@ -1,50 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="20dp"
-    android:background="#FFFFFF"
-    android:orientation="horizontal"
-    android:gravity="center_vertical">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/mainicon"
-        android:layout_weight="1"/>
+        android:orientation="vertical"
+        android:background="@color/white">
 
-    <TextView
-        android:id="@+id/ticketText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="티켓"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="25dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toBottomOf="@id/logoImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/logoImage"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginBottom="2dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="20dp">
 
-    <EditText
-        android:id="@+id/searchBox"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:hint="실리카겔 단독 콘서트 ..."
-        android:inputType="text"
-        android:layout_weight="6"
-        android:background="@android:color/transparent"
-        android:padding="8dp"/>
+            <ImageView
+                android:id="@+id/logoImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/mainicon" />
 
-    <ImageView
-        android:id="@+id/searchIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_search"
-        android:padding="8dp"/>
-</LinearLayout>
+            <TextView
+                android:id="@+id/ticketText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="2dp"
+                android:text="티켓"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@id/logoImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/logoImage" />
+
+            <EditText
+                android:id="@+id/searchBox"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="6"
+                android:background="@android:color/transparent"
+                android:hint="실리카겔 단독 콘서트 ..."
+                android:inputType="text"/>
+
+            <ImageView
+                android:id="@+id/searchIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:src="@drawable/ic_search" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:scrollbars="horizontal"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*"
+            android:padding="1dp"
+            android:layout_marginTop="16dp">
+
+            <TableRow>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageMusical"
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_musical"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="뮤지컬"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageConcert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_concert"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="콘서트"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageSports"
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_sports"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스포츠"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageClassic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_classic"
+                        android:padding="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="클래식/무용"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/imageTheater"
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:src="@drawable/ic_theater"
+                        android:padding="2dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="연극"
+                        android:textAlignment="center" />
+                </LinearLayout>
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="장르별 랭킹"
+                android:textStyle="bold"
+                android:textSize="25dp"
+                android:textColor="@color/black"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="뮤지컬"
+                    android:backgroundTint="#FC5230"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="콘서트"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="#FC5230"
+                    android:textColor="@color/white"/>
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스포츠"
+                    android:backgroundTint="#FC5230"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="클래식/무용"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="#FC5230"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="연극"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="#FC5230"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</ScrollView>
+
