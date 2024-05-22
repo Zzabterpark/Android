@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 data class RankingItem(val rank: Int, val title: String, val location: String, val dates: String, val rate: String, val imageRes: Int)
 
-class RankingAdapter(private val items: List<RankingItem>) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
+class RankingAdapter(private var items: List<RankingItem>) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val rankTextView: TextView = view.findViewById(R.id.rankTextView)
@@ -36,4 +36,9 @@ class RankingAdapter(private val items: List<RankingItem>) : RecyclerView.Adapte
     }
 
     override fun getItemCount(): Int = items.size
+
+    fun updateList(newItems: List<RankingItem>) {
+        items = newItems
+        notifyDataSetChanged()
+    }
 }
