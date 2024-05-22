@@ -1,6 +1,9 @@
 <resources>
-    <style name="BottomNavigationTheme" parent="Widget.MaterialComponents.BottomNavigationView">
+    <style name="BottomNavigationTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="itemIconTint">@color/bottom_nav_item_color</item>
         <item name="itemTextColor">@color/bottom_nav_item_color</item>
+        <item name="colorPrimary">#FC5230</item>
+        <item name="colorPrimaryDark">#FC5230</item>
+        <item name="colorAccent">#FC5230</item>
     </style>
 </resources>
