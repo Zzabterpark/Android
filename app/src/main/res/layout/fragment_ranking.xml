@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Toolbar Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +32,6 @@
                 android:src="@drawable/ic_search" />
         </LinearLayout>
 
-        <!-- Category Section -->
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,6 +43,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/btn_musical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="뮤지컬"
@@ -53,6 +52,7 @@
                     android:background="?attr/selectableItemBackground" />
 
                 <Button
+                    android:id="@+id/btn_concert"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="콘서트"
@@ -61,6 +61,7 @@
                     android:background="?attr/selectableItemBackground" />
 
                 <Button
+                    android:id="@+id/btn_sports"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="스포츠"
@@ -69,6 +70,7 @@
                     android:background="?attr/selectableItemBackground" />
 
                 <Button
+                    android:id="@+id/btn_exhibition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="전시/행사"
@@ -77,6 +79,7 @@
                     android:background="?attr/selectableItemBackground" />
 
                 <Button
+                    android:id="@+id/btn_classic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="클래식/무용"
@@ -86,7 +89,6 @@
             </LinearLayout>
         </HorizontalScrollView>
 
-        <!-- Filter Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,6 +97,7 @@
             android:gravity="center_vertical">
 
             <Button
+                android:id="@+id/btn_all"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="전체"
@@ -103,6 +106,7 @@
                 android:background="?attr/selectableItemBackground" />
 
             <Button
+                android:id="@+id/btn_license"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="라이선스/내한"
@@ -111,6 +115,7 @@
                 android:background="?attr/selectableItemBackground" />
 
             <Button
+                android:id="@+id/btn_creation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="창작"
