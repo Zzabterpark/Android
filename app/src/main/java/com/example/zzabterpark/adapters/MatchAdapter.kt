@@ -1,5 +1,7 @@
 package com.example.zzabterpark
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MatchAdapter(private val matches: List<Match>) : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
+class MatchAdapter(private val matches: List<Match>, private val context: Context) : RecyclerView.Adapter<MatchAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.sports_item_match, parent, false)
@@ -22,6 +24,15 @@ class MatchAdapter(private val matches: List<Match>) : RecyclerView.Adapter<Matc
         holder.teamLogo2.setImageResource(match.teamLogo2)
         holder.matchInfo.text = match.matchInfo
         holder.venue.text = match.venue
+
+        holder.bookButton.setOnClickListener {
+            val intent = Intent(context, BookingActivity::class.java).apply {
+                putExtra("eventImage", match.teamLogo1)
+                putExtra("eventTitle", match.matchInfo)
+                putExtra("eventDate", match.dateTime)
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

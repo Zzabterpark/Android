@@ -29,7 +29,6 @@ class SportsActivity : AppCompatActivity() {
             tab.text = tabNames[position]
         }.attach()
 
-        // Listen for tab selection to change banners
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 val position = tab?.position ?: 0

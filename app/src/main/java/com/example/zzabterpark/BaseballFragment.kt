@@ -17,7 +17,9 @@ class BaseballFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_baseball, container, false)
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewBaseball)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        recyclerView.adapter = MatchAdapter(getBaseballMatches())
+        context?.let {
+            recyclerView.adapter = MatchAdapter(getBaseballMatches(), it)
+        }
         return view
     }
 
