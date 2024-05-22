@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RankingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Toolbar Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="장르별 랭킹"
+                android:textSize="18sp"
+                android:textColor="@android:color/black"
+                android:gravity="center" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_search" />
+        </LinearLayout>
+
+        <!-- Category Section -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="뮤지컬"
+                    android:textColor="@color/black"
+                    android:paddingHorizontal="16dp"
+                    android:background="?attr/selectableItemBackground" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="콘서트"
+                    android:textColor="@color/black"
+                    android:paddingHorizontal="16dp"
+                    android:background="?attr/selectableItemBackground" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스포츠"
+                    android:textColor="@color/black"
+                    android:paddingHorizontal="16dp"
+                    android:background="?attr/selectableItemBackground" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전시/행사"
+                    android:textColor="@color/black"
+                    android:paddingHorizontal="16dp"
+                    android:background="?attr/selectableItemBackground" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="클래식/무용"
+                    android:textColor="@color/black"
+                    android:paddingHorizontal="16dp"
+                    android:background="?attr/selectableItemBackground" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Filter Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:gravity="center_vertical">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전체"
+                android:textColor="@color/black"
+                android:paddingHorizontal="16dp"
+                android:background="?attr/selectableItemBackground" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="라이선스/내한"
+                android:textColor="@color/black"
+                android:paddingHorizontal="16dp"
+                android:background="?attr/selectableItemBackground" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="창작"
+                android:textColor="@color/black"
+                android:paddingHorizontal="16dp"
+                android:background="?attr/selectableItemBackground" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="16dp"
+            android:scrollbars="vertical" />
+    </LinearLayout>
+</FrameLayout>
