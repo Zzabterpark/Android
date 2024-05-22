@@ -7,12 +7,12 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zzabterpark.SportsActivity
 import com.example.zzabterpark.CardItem
 import com.example.zzabterpark.ClassicActivity
 import com.example.zzabterpark.ConcertActivity
 import com.example.zzabterpark.MusicalActivity
 import com.example.zzabterpark.R
-import com.example.zzabterpark.SportsActivity
 import com.example.zzabterpark.TheaterActivity
 
 class HomeFragment : Fragment() {
