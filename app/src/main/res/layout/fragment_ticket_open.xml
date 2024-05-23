@@ -10,7 +10,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Toolbar Section -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,7 +21,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="오픈공지"
+                android:text="   오픈공지"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@android:color/black"
                 android:gravity="center" />
@@ -33,11 +33,11 @@
                 android:src="@drawable/ic_search" />
         </LinearLayout>
 
-        <!-- Recommended Tickets Section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="추천티켓"
+            android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="@android:color/black"
             android:paddingStart="16dp"
@@ -49,11 +49,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp" />
 
-        <!-- Open Schedule Section -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="오픈일순"
+            android:textStyle="bold"
             android:textSize="16sp"
             android:textColor="@android:color/black"
             android:paddingStart="16dp"
