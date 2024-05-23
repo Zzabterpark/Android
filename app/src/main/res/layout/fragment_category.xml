@@ -30,6 +30,7 @@
             android:padding="16dp"
             android:layout_gravity="center"
             android:layout_marginBottom="24dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,14 +38,14 @@
                 android:gravity="center"
                 android:layout_margin="16dp"
                 android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:onClick="onCategoryClick">
+                android:clickable="true">
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/ic_musical"
                     android:layout_gravity="center"/>
                 <Button
+                    android:id="@+id/btn_musical"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="뮤지컬"
@@ -54,6 +55,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:padding="16dp"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,14 +63,14 @@
                 android:gravity="center"
                 android:layout_margin="16dp"
                 android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:onClick="onCategoryClick">
+                android:clickable="true">
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/ic_concert"
                     android:layout_gravity="center"/>
                 <Button
+                    android:id="@+id/btn_concert"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="콘서트"
@@ -78,6 +80,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:padding="16dp"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,14 +88,14 @@
                 android:gravity="center"
                 android:layout_margin="16dp"
                 android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:onClick="onCategoryClick">
+                android:clickable="true">
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/ic_theater"
                     android:layout_gravity="center"/>
                 <Button
+                    android:id="@+id/btn_theater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="연극"
@@ -102,6 +105,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:padding="16dp"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -109,14 +113,14 @@
                 android:gravity="center"
                 android:layout_margin="16dp"
                 android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:onClick="onCategoryClick">
+                android:clickable="true">
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/ic_classic"
                     android:layout_gravity="center"/>
                 <Button
+                    android:id="@+id/btn_classic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="클래식/무용"
@@ -126,6 +130,7 @@
                     android:background="?attr/selectableItemBackground"
                     android:padding="16dp"/>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -133,14 +138,14 @@
                 android:gravity="center"
                 android:layout_margin="16dp"
                 android:background="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:onClick="onCategoryClick">
+                android:clickable="true">
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:src="@drawable/ic_sports"
                     android:layout_gravity="center"/>
                 <Button
+                    android:id="@+id/btn_sports"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="스포츠"
@@ -151,11 +156,13 @@
                     android:padding="16dp"/>
             </LinearLayout>
         </GridLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@android:color/darker_gray"
             android:layout_marginBottom="16dp"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
