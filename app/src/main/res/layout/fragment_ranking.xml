@@ -21,10 +21,11 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="장르별 랭킹"
+                android:text="   장르별 랭킹"
                 android:textSize="18sp"
                 android:textColor="@android:color/black"
-                android:gravity="center" />
+                android:gravity="center"
+                android:layout_gravity="center"/>
 
             <ImageView
                 android:layout_width="24dp"
@@ -73,7 +74,7 @@
                     android:id="@+id/btn_exhibition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="전시/행사"
+                    android:text="연극"
                     android:textColor="@color/black"
                     android:paddingHorizontal="16dp"
                     android:background="?attr/selectableItemBackground" />
@@ -88,41 +89,6 @@
                     android:background="?attr/selectableItemBackground" />
             </LinearLayout>
         </HorizontalScrollView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="8dp"
-            android:gravity="center_vertical">
-
-            <Button
-                android:id="@+id/btn_all"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="전체"
-                android:textColor="@color/black"
-                android:paddingHorizontal="16dp"
-                android:background="?attr/selectableItemBackground" />
-
-            <Button
-                android:id="@+id/btn_license"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="라이선스/내한"
-                android:textColor="@color/black"
-                android:paddingHorizontal="16dp"
-                android:background="?attr/selectableItemBackground" />
-
-            <Button
-                android:id="@+id/btn_creation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="창작"
-                android:textColor="@color/black"
-                android:paddingHorizontal="16dp"
-                android:background="?attr/selectableItemBackground" />
-        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"

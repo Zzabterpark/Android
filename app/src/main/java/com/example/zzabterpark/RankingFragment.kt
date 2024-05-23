@@ -35,14 +35,12 @@ class RankingFragment : Fragment() {
         val btnSports: Button = view.findViewById(R.id.btn_sports)
         val btnExhibition: Button = view.findViewById(R.id.btn_exhibition)
         val btnClassic: Button = view.findViewById(R.id.btn_classic)
-        val btnAll: Button = view.findViewById(R.id.btn_all)
 
         btnMusical.setOnClickListener { filterRankingList("뮤지컬") }
         btnConcert.setOnClickListener { filterRankingList("콘서트") }
         btnSports.setOnClickListener { filterRankingList("스포츠") }
-        btnExhibition.setOnClickListener { filterRankingList("전시/행사") }
+        btnExhibition.setOnClickListener { filterRankingList("연극") }
         btnClassic.setOnClickListener { filterRankingList("클래식/무용") }
-        btnAll.setOnClickListener { filterRankingList("") }
 
         return view
     }
