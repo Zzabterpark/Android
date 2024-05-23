@@ -1,5 +1,6 @@
 package com.example.zzabterpark
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,6 +33,26 @@ class TicketOpenAdapter(private val items: List<TicketItem>) : RecyclerView.Adap
         holder.imageView.setImageResource(item.imageRes)
         holder.titleTextView.text = item.title
         holder.dateTextView.text = item.date
+
+        holder.titleTextView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, BookingActivity::class.java).apply {
+                putExtra("eventImage", item.imageRes)
+                putExtra("eventTitle", item.title)
+                putExtra("eventDate", item.date)
+            }
+            context.startActivity(intent)
+        }
+
+        holder.imageView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, BookingActivity::class.java).apply {
+                putExtra("eventImage", item.imageRes)
+                putExtra("eventTitle", item.title)
+                putExtra("eventDate", item.date)
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = items.size
