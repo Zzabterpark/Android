@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ViewPagerAdapter(private val items: List<TicketItem>) : RecyclerView.Adapter<ViewPagerAdapter.ViewHolder>() {
+class ViewPagerTicketAdapter(private val items: List<TicketItem>) : RecyclerView.Adapter<ViewPagerTicketAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imageView: ImageView = view.findViewById(R.id.imageView)
