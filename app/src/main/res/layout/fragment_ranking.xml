@@ -22,6 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="   장르별 랭킹"
+                android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@android:color/black"
                 android:gravity="center"
@@ -48,47 +49,63 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="뮤지컬"
-                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textColor="@color/button_text_color"
+                    android:background="@drawable/rounded_button_background"
                     android:paddingHorizontal="16dp"
-                    android:background="?attr/selectableItemBackground" />
+                    android:layout_marginEnd="8dp" />
 
                 <Button
                     android:id="@+id/btn_concert"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="콘서트"
-                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textColor="@color/button_text_color"
+                    android:background="@drawable/rounded_button_background"
                     android:paddingHorizontal="16dp"
-                    android:background="?attr/selectableItemBackground" />
+                    android:layout_marginEnd="8dp" />
 
                 <Button
                     android:id="@+id/btn_sports"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="스포츠"
-                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textColor="@color/button_text_color"
+                    android:background="@drawable/rounded_button_background"
                     android:paddingHorizontal="16dp"
-                    android:background="?attr/selectableItemBackground" />
+                    android:layout_marginEnd="8dp" />
 
                 <Button
                     android:id="@+id/btn_exhibition"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="연극"
-                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textColor="@color/button_text_color"
+                    android:background="@drawable/rounded_button_background"
                     android:paddingHorizontal="16dp"
-                    android:background="?attr/selectableItemBackground" />
+                    android:layout_marginEnd="8dp" />
 
                 <Button
                     android:id="@+id/btn_classic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="클래식/무용"
-                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textColor="@color/button_text_color"
+                    android:background="@drawable/rounded_button_background"
                     android:paddingHorizontal="16dp"
-                    android:background="?attr/selectableItemBackground" />
+                    android:layout_marginEnd="8dp" />
             </LinearLayout>
         </HorizontalScrollView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginBottom="16dp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"

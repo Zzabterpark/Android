@@ -1,5 +1,6 @@
 package com.example.zzabterpark
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,15 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 data class RankingItem(val rank: Int, val title: String, val location: String, val dates: String, val rate: String, val imageRes: Int)
 
 class RankingAdapter(private var items: List<RankingItem>) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
-
-    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val rankTextView: TextView = view.findViewById(R.id.rankTextView)
-        val titleTextView: TextView = view.findViewById(R.id.titleTextView)
-        val locationTextView: TextView = view.findViewById(R.id.locationTextView)
-        val datesTextView: TextView = view.findViewById(R.id.datesTextView)
-        val rateTextView: TextView = view.findViewById(R.id.rateTextView)
-        val imageView: ImageView = view.findViewById(R.id.imageView)
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_ranking, parent, false)
@@ -33,6 +25,16 @@ class RankingAdapter(private var items: List<RankingItem>) : RecyclerView.Adapte
         holder.datesTextView.text = item.dates
         holder.rateTextView.text = item.rate
         holder.imageView.setImageResource(item.imageRes)
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, BookingActivity::class.java).apply {
+                putExtra("eventImage", item.imageRes)
+                putExtra("eventTitle", item.title)
+                putExtra("eventDate", item.dates)
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int = items.size
@@ -40,5 +42,14 @@ class RankingAdapter(private var items: List<RankingItem>) : RecyclerView.Adapte
     fun updateList(newItems: List<RankingItem>) {
         items = newItems
         notifyDataSetChanged()
+    }
+
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val rankTextView: TextView = itemView.findViewById(R.id.rankTextView)
+        val imageView: ImageView = itemView.findViewById(R.id.imageView)
+        val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
+        val locationTextView: TextView = itemView.findViewById(R.id.locationTextView)
+        val datesTextView: TextView = itemView.findViewById(R.id.datesTextView)
+        val rateTextView: TextView = itemView.findViewById(R.id.rateTextView)
     }
 }
