@@ -14,9 +14,9 @@ class RankingFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: RankingAdapter
     private var rankingList = listOf(
-        RankingItem(1, "뮤지컬 <프랑켄슈타인> 10주년 기념공연", "블루스퀘어 신한카드홀", "2024.6.5 ~ 8.25", "47.2%", R.drawable.sample_image1),
-        RankingItem(2, "뮤지컬 <에밀>", "예스24스테이지 3관", "2024.6.11 ~ 9.1", "4.6%", R.drawable.sample_image1),
-        RankingItem(3, "뮤지컬 <하데스타운> 한국 공연", "샤롯데씨어터", "2024.7.12 ~ 10.6", "4.1%", R.drawable.sample_image1),
+        RankingItem(1, "뮤지컬 <프랑켄슈타인> 10주년 기념공연", "블루스퀘어 신한카드홀", "2024.6.5 ~ 8.25", "47.2%", R.drawable.musical_image1),
+        RankingItem(2, "뮤지컬 <에밀>", "예스24스테이지 3관", "2024.6.11 ~ 9.1", "4.6%", R.drawable.musical_image2),
+        RankingItem(3, "뮤지컬 <하데스타운> 한국 공연", "샤롯데씨어터", "2024.7.12 ~ 10.6", "4.1%", R.drawable.musical_image3),
     )
 
     override fun onCreateView(
