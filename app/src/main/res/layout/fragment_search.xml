@@ -3,17 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@android:color/white">
 
     <EditText
         android:id="@+id/searchBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="8dp"
         android:hint="카드할인, 학생할인으로 찾아보세요."
         android:padding="12dp"
         android:drawablePadding="8dp"
         android:singleLine="true"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="text"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -33,6 +37,7 @@
             android:layout_height="wrap_content"
             android:text="최근 검색어"
             android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="@android:color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +61,7 @@
         android:layout_marginTop="8dp"
         android:text="최근 검색어가 없습니다."
         android:textColor="@android:color/darker_gray"
-        android:textAppearance="?attr/textAppearanceBody1"
+        android:textAppearance="?attr/textAppearanceBody2"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/recentSearchesContainer"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +74,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noRecentSearchesMessage" />
+        app:layout_constraintTop_toBottomOf="@id/noRecentSearchesMessage" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/recommendedTagsContainer"
@@ -86,6 +91,7 @@
             android:layout_height="wrap_content"
             android:text="추천테마"
             android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="@android:color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -97,6 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
+        android:padding="8dp"
         app:layout_constraintTop_toBottomOf="@id/recommendedTagsContainer"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -117,6 +124,7 @@
             android:layout_height="wrap_content"
             android:text="실시간 검색어"
             android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="@android:color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -126,7 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2024.05.20 06:00 기준"
-            android:textAppearance="?attr/textAppearanceBody1"
+            android:textAppearance="?attr/textAppearanceBody2"
             android:textColor="@android:color/darker_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
