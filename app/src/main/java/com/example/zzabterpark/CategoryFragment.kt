@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 
 class CategoryFragment : Fragment() {
 
@@ -22,6 +23,22 @@ class CategoryFragment : Fragment() {
         val btnTheater: Button = view.findViewById(R.id.btn_theater)
         val btnClassic: Button = view.findViewById(R.id.btn_classic)
         val btnSports: Button = view.findViewById(R.id.btn_sports)
+
+        val btnRanking: Button = view.findViewById(R.id.ranking_btn)
+        btnRanking.setOnClickListener {
+            val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, RankingFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+        val btnTicketOpen: Button = view.findViewById(R.id.btn_ticket_open)
+        btnTicketOpen.setOnClickListener {
+            val transaction: FragmentTransaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container, TicketOpenFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         btnMusical.setOnClickListener {
             startActivity(Intent(activity, MusicalActivity::class.java))
