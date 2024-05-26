@@ -2,7 +2,6 @@ package com.example.zzabterpark
 
 import CategoryFragment
 import HomeFragment
-import MyFragment
 import SearchFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -30,10 +29,16 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        if (intent?.getStringExtra("navigateTo") == "HomeFragment") {
+        val navigateTo = intent?.getStringExtra("navigateTo")
+        if (navigateTo == "HomeFragment") {
             loadFragment(HomeFragment())
+            bottomNav.selectedItemId = R.id.nav_home
+        } else if (navigateTo == "MyFragment") {
+            loadFragment(MyFragment())
+            bottomNav.selectedItemId = R.id.nav_my
         } else {
             loadFragment(HomeFragment())
+            bottomNav.selectedItemId = R.id.nav_home
         }
     }
 
