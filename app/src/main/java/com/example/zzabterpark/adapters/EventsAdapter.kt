@@ -12,7 +12,7 @@ import com.example.zzabterpark.BookingActivity
 import com.example.zzabterpark.R
 import com.example.zzabterpark.data.Event
 
-class EventsAdapter(private val eventsList: List<Event>) :
+class EventsAdapter(private var eventsList: List<Event>) :
     RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
@@ -38,6 +38,11 @@ class EventsAdapter(private val eventsList: List<Event>) :
     }
 
     override fun getItemCount() = eventsList.size
+
+    fun updateEvents(newEventsList: List<Event>) {
+        eventsList = newEventsList
+        notifyDataSetChanged()
+    }
 
     class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageEvent)

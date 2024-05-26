@@ -1,3 +1,7 @@
+package com.example.zzabterpark
+
+import RealtimeSearchesAdapter
+import RecentSearchesAdapter
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -13,8 +17,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.zzabterpark.R
-import com.example.zzabterpark.SearchViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -73,6 +75,7 @@ class SearchFragment : Fragment() {
                 if (searchQuery.isNotEmpty()) {
                     searchViewModel.addSearch(searchQuery)
                     searchBar.text.clear()
+                    openSearchResultFragment(searchQuery)
                 }
                 true
             } else {
@@ -114,5 +117,14 @@ class SearchFragment : Fragment() {
         calendar.set(Calendar.MILLISECOND, 0)
 
         return calendar.time
+    }
+
+    private fun openSearchResultFragment(query: String) {
+        val fragment = SearchResultFragment.newInstance(query)
+        parentFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_container, fragment)
+            addToBackStack(null)
+            commit()
+        }
     }
 }
