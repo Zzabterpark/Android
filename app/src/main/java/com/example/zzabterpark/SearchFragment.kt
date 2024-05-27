@@ -2,6 +2,7 @@ package com.example.zzabterpark
 
 import RealtimeSearchesAdapter
 import RecentSearchesAdapter
+import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -75,6 +77,7 @@ class SearchFragment : Fragment() {
                 if (searchQuery.isNotEmpty()) {
                     searchViewModel.addSearch(searchQuery)
                     searchBar.text.clear()
+                    hideKeyboard()
                     openSearchResultFragment(searchQuery)
                 }
                 true
@@ -126,5 +129,10 @@ class SearchFragment : Fragment() {
             addToBackStack(null)
             commit()
         }
+    }
+
+    private fun hideKeyboard() {
+        val inputMethodManager = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view?.windowToken, 0)
     }
 }
