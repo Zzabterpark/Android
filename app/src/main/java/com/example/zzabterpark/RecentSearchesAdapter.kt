@@ -5,22 +5,29 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zzabterpark.R
 
-class RecentSearchesAdapter : RecyclerView.Adapter<RecentSearchesAdapter.ViewHolder>() {
+class RecentSearchesAdapter(private val onItemClick: (String) -> Unit) : RecyclerView.Adapter<RecentSearchesAdapter.ViewHolder>() {
 
     private val searches = mutableListOf<String>()
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View, val onItemClick: (String) -> Unit) : RecyclerView.ViewHolder(itemView) {
         val searchTextView: TextView = itemView.findViewById(R.id.searchTextView)
+
+        fun bind(search: String) {
+            searchTextView.text = search
+            itemView.setOnClickListener {
+                onItemClick(search)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_recent_search, parent, false)
-        return ViewHolder(view)
+        return ViewHolder(view, onItemClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.searchTextView.text = searches[position]
+        holder.bind(searches[position])
     }
 
     override fun getItemCount(): Int {

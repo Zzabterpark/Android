@@ -51,7 +51,10 @@ class SearchFragment : Fragment() {
         realtimeSearchesTime = view.findViewById(R.id.realtimeSearchesTime)
 
         recentSearchesRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        recentSearchesAdapter = RecentSearchesAdapter()
+        recentSearchesAdapter = RecentSearchesAdapter { searchQuery ->
+            searchViewModel.addSearch(searchQuery)
+            openSearchResultFragment(searchQuery)
+        }
         recentSearchesRecyclerView.adapter = recentSearchesAdapter
 
         realtimeSearchesRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
