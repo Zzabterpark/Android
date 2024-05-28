@@ -1,15 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <EditText
+        android:id="@+id/searchBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:hint="카드할인, 학생할인으로 찾아보세요."
+        android:padding="12dp"
+        android:drawablePadding="8dp"
+        android:singleLine="true"
+        android:background="@drawable/rounded_edittext"
+        android:inputType="text"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recentSearchesContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchBar">
+
+        <TextView
+            android:id="@+id/recentSearchesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="최근 검색어"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/clearAllButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전체삭제"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="@android:color/holo_red_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/noRecentSearchesMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search Fragment"
-        android:textSize="24sp"
-        android:gravity="center" />
-</FrameLayout>
+        android:layout_marginTop="8dp"
+        android:text="최근 검색어가 없습니다."
+        android:textColor="@android:color/darker_gray"
+        android:textAppearance="?attr/textAppearanceBody2"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/recentSearchesContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recentSearches"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/noRecentSearchesMessage" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/recommendedTagsContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/recentSearches"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/recommendedTagsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="추천테마"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/recommendedTags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintTop_toBottomOf="@id/recommendedTagsContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/realtimeSearchesContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/recommendedTags"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/realtimeSearchesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="실시간 검색어"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/realtimeSearchesTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2024.05.20 06:00 기준"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textColor="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/realtimeSearches"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/realtimeSearchesContainer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
