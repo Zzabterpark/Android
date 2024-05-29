@@ -9,13 +9,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.zzabterpark.SportsActivity
-import com.example.zzabterpark.CardItem
-import com.example.zzabterpark.ClassicActivity
-import com.example.zzabterpark.ConcertActivity
-import com.example.zzabterpark.MusicalActivity
-import com.example.zzabterpark.R
-import com.example.zzabterpark.TheaterActivity
+import com.example.zzabterpark.*
 import com.example.zzabterpark.adapters.CardAdapter
 
 class HomeFragment : Fragment() {
@@ -70,6 +64,10 @@ class HomeFragment : Fragment() {
         view.findViewById<ImageView>(R.id.imageTheater).setOnClickListener {
             navigateToCategory("Theater")
         }
+
+        view.findViewById<ImageView>(R.id.searchIcon).setOnClickListener {
+            navigateToSearchFragment()
+        }
     }
 
     private fun navigateToCategory(category: String) {
@@ -80,5 +78,12 @@ class HomeFragment : Fragment() {
             "Classic" -> startActivity(Intent(context, ClassicActivity::class.java))
             "Theater" -> startActivity(Intent(context, TheaterActivity::class.java))
         }
+    }
+
+    private fun navigateToSearchFragment() {
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, SearchFragment())
+            .addToBackStack(null)
+            .commit()
     }
 }
