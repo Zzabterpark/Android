@@ -110,7 +110,7 @@ class BookingActivity : AppCompatActivity() {
 
     private fun navigateToHomeFragment() {
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("navigateTo", "HomeFragment")
+        intent.putExtra("navigateTo", "com.example.zzabterpark.fragment.HomeFragment")
         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
         startActivity(intent)
         finish()

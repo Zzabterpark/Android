@@ -1,7 +1,5 @@
-package com.example.zzabterpark
+package com.example.zzabterpark.fragment
 
-import RealtimeSearchesAdapter
-import RecentSearchesAdapter
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
@@ -19,6 +17,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zzabterpark.R
+import com.example.zzabterpark.SearchViewModel
+import com.example.zzabterpark.adapters.RealtimeSearchesAdapter
+import com.example.zzabterpark.adapters.RecentSearchesAdapter
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -58,7 +60,9 @@ class SearchFragment : Fragment() {
         recentSearchesRecyclerView.adapter = recentSearchesAdapter
 
         realtimeSearchesRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        realtimeSearchesAdapter = RealtimeSearchesAdapter()
+        realtimeSearchesAdapter = RealtimeSearchesAdapter { searchQuery ->
+            openSearchResultFragment(searchQuery)
+        }
         realtimeSearchesRecyclerView.adapter = realtimeSearchesAdapter
 
         searchViewModel = ViewModelProvider(this).get(SearchViewModel::class.java)
@@ -69,8 +73,7 @@ class SearchFragment : Fragment() {
         })
 
         searchViewModel.realtimeSearches.observe(viewLifecycleOwner, Observer { searches ->
-            val rankedSearches = searches.mapIndexed { index, search -> index + 1 to search }
-            realtimeSearchesAdapter.updateSearches(rankedSearches)
+            realtimeSearchesAdapter.updateSearches(searches)
         })
 
         searchBar.setOnEditorActionListener { _, actionId, event ->

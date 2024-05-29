@@ -1,3 +1,5 @@
+package com.example.zzabterpark.adapters
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -5,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.zzabterpark.R
 
-class RealtimeSearchesAdapter : RecyclerView.Adapter<RealtimeSearchesAdapter.ViewHolder>() {
+class RealtimeSearchesAdapter(private val onItemClick: (String) -> Unit) : RecyclerView.Adapter<RealtimeSearchesAdapter.ViewHolder>() {
 
     private val searches = mutableListOf<Pair<Int, String>>()
 
@@ -24,6 +26,10 @@ class RealtimeSearchesAdapter : RecyclerView.Adapter<RealtimeSearchesAdapter.Vie
         val (rank, keyword) = searches[position]
         holder.rankTextView.text = rank.toString()
         holder.keywordTextView.text = keyword
+
+        holder.itemView.setOnClickListener {
+            onItemClick(keyword)
+        }
     }
 
     override fun getItemCount(): Int {

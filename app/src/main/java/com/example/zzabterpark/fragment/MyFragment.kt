@@ -1,4 +1,4 @@
-package com.example.zzabterpark
+package com.example.zzabterpark.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.zzabterpark.BookingHistoryActivity
+import com.example.zzabterpark.LoginActivity
+import com.example.zzabterpark.R
+import com.example.zzabterpark.UserStorage
 
 class MyFragment : Fragment() {
     override fun onCreateView(
