@@ -1,4 +1,4 @@
-package com.example.zzabterpark
+package com.example.zzabterpark.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zzabterpark.R
+import com.example.zzabterpark.SearchViewModel
 import com.example.zzabterpark.adapters.EventsAdapter
 
 private const val ARG_QUERY = "query"

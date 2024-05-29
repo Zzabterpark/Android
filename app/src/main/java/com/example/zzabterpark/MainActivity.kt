@@ -1,9 +1,12 @@
 package com.example.zzabterpark
 
-import HomeFragment
+import com.example.zzabterpark.fragment.HomeFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.zzabterpark.fragment.CategoryFragment
+import com.example.zzabterpark.fragment.MyFragment
+import com.example.zzabterpark.fragment.SearchFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         val navigateTo = intent?.getStringExtra("navigateTo")
-        if (navigateTo == "HomeFragment") {
+        if (navigateTo == "com.example.zzabterpark.fragment.HomeFragment") {
             loadFragment(HomeFragment())
             bottomNav.selectedItemId = R.id.nav_home
         } else if (navigateTo == "MyFragment") {

@@ -1,4 +1,4 @@
-package com.example.zzabterpark
+package com.example.zzabterpark.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zzabterpark.Match
+import com.example.zzabterpark.MatchAdapter
+import com.example.zzabterpark.R
 
 class SoccerFragment : Fragment() {
 

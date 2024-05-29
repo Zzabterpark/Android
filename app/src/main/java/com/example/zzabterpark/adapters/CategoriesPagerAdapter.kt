@@ -3,6 +3,9 @@ package com.example.zzabterpark
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.zzabterpark.fragment.BaseballFragment
+import com.example.zzabterpark.fragment.EsportsFragment
+import com.example.zzabterpark.fragment.SoccerFragment
 
 class CategoriesPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
 

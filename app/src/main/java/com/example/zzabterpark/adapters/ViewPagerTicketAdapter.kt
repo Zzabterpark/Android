@@ -1,4 +1,4 @@
-package com.example.zzabterpark
+package com.example.zzabterpark.adapters
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zzabterpark.BookingActivity
+import com.example.zzabterpark.R
 
 class ViewPagerTicketAdapter(private val items: List<TicketItem>) : RecyclerView.Adapter<ViewPagerTicketAdapter.ViewHolder>() {
 

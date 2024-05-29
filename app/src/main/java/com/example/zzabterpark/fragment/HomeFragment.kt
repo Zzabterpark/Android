@@ -1,3 +1,5 @@
+package com.example.zzabterpark.fragment
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -14,6 +16,7 @@ import com.example.zzabterpark.ConcertActivity
 import com.example.zzabterpark.MusicalActivity
 import com.example.zzabterpark.R
 import com.example.zzabterpark.TheaterActivity
+import com.example.zzabterpark.adapters.CardAdapter
 
 class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView

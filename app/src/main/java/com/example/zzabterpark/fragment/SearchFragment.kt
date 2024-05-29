@@ -1,7 +1,7 @@
-package com.example.zzabterpark
+package com.example.zzabterpark.fragment
 
-import RealtimeSearchesAdapter
-import RecentSearchesAdapter
+import com.example.zzabterpark.adapters.RealtimeSearchesAdapter
+import com.example.zzabterpark.adapters.RecentSearchesAdapter
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
@@ -19,6 +19,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zzabterpark.R
+import com.example.zzabterpark.SearchViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 

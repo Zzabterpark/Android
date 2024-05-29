@@ -1,4 +1,4 @@
-package com.example.zzabterpark
+package com.example.zzabterpark.adapters
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zzabterpark.BookingActivity
+import com.example.zzabterpark.R
 
 data class RankingItem(val rank: Int, val title: String, val location: String, val dates: String, val rate: String, val imageRes: Int)
 

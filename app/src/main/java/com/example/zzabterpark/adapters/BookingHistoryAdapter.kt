@@ -1,4 +1,4 @@
-package com.example.zzabterpark
+package com.example.zzabterpark.adapters
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -9,6 +9,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.zzabterpark.Booking
+import com.example.zzabterpark.R
 
 class BookingHistoryAdapter(
     private val bookings: MutableList<Booking>, private val context: Context
