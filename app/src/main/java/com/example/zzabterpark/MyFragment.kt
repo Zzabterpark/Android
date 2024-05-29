@@ -39,7 +39,12 @@ class MyFragment : Fragment() {
         val loggedInUserName = UserStorage.getLoggedInUserName() ?: "사용자"
         val loginText: TextView = view.findViewById(R.id.login_text)
         loginText.text = loggedInUserName + "님"
-        // 로그인 후 보여줄 다른 UI 요소 설정
+
+        val bookingHistoryLayout: View = view.findViewById(R.id.booking_history_layout)
+        bookingHistoryLayout.setOnClickListener {
+            val intent = Intent(activity, BookingHistoryActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupLoggedOutView(view: View) {

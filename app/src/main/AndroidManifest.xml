@@ -38,6 +38,9 @@
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity
+            android:name=".BookingHistoryActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity

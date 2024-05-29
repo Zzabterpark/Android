@@ -1,5 +1,6 @@
 package com.example.zzabterpark
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -76,11 +77,24 @@ class BookingActivity : AppCompatActivity() {
             val phone = etPhone.text.toString()
 
             if (name.isNotEmpty() && email.isNotEmpty() && phone.isNotEmpty()) {
+                saveBooking(eventTitle, eventDate, generalCount, previewCount)
                 showPaymentDialog()
             } else {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun saveBooking(title: String?, date: String?, generalCount: Int, previewCount: Int) {
+        val sharedPreferences = getSharedPreferences("booking", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val bookings = sharedPreferences.getStringSet("bookings", mutableSetOf()) ?: mutableSetOf()
+
+        val bookingInfo = "$title|$date|$generalCount|$previewCount"
+        bookings.add(bookingInfo)
+
+        editor.putStringSet("bookings", bookings)
+        editor.apply()
     }
 
     private fun showPaymentDialog() {
