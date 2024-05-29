@@ -9,8 +9,10 @@ class SearchViewModel : ViewModel() {
     private val _recentSearches = MutableLiveData<MutableList<String>>(mutableListOf())
     val recentSearches: LiveData<MutableList<String>> get() = _recentSearches
 
-    private val _realtimeSearches = MutableLiveData<MutableList<String>>(mutableListOf())
-    val realtimeSearches: LiveData<MutableList<String>> get() = _realtimeSearches
+    private val _realtimeSearches = MutableLiveData<List<Pair<Int, String>>>()
+    val realtimeSearches: LiveData<List<Pair<Int, String>>> get() = _realtimeSearches
+
+    private val searchFrequencies = mutableMapOf<String, Int>()
 
     private val _events = listOf(
         Event(R.drawable.musical_image1, "뮤지컬 <레드북>", "2024-03-01 to 2024-03-31"),
@@ -29,6 +31,10 @@ class SearchViewModel : ViewModel() {
     private val _searchResults = MutableLiveData<List<Event>>()
     val searchResults: LiveData<List<Event>> get() = _searchResults
 
+    init {
+        setDefaultRealtimeSearches()
+    }
+
     fun addSearch(search: String) {
         _recentSearches.value?.apply {
             if (!contains(search)) {
@@ -37,15 +43,32 @@ class SearchViewModel : ViewModel() {
                 _recentSearches.value = this
             }
         }
+        updateSearchFrequencies(search)
         performSearch(search)
+    }
+
+    private fun updateSearchFrequencies(search: String) {
+        searchFrequencies[search] = searchFrequencies.getOrDefault(search, 0) + 1
+        val sortedSearches = searchFrequencies.entries
+            .sortedByDescending { it.value }
+            .take(10)
+            .mapIndexed { index, entry -> (index + 1) to entry.key }
+        _realtimeSearches.value = sortedSearches
     }
 
     fun clearAllSearches() {
         _recentSearches.value = mutableListOf()
     }
 
-    fun updateRealtimeSearches(newSearches: List<String>) {
-        _realtimeSearches.value = newSearches.toMutableList()
+    private fun setDefaultRealtimeSearches() {
+        val defaultSearches = listOf(
+            "레미제라블", "라면", "돈키호테", "QWER", "카더가든",
+            "La La Land", "운빨로맨스", "레드북", "백예린", "오케스트라"
+        )
+        defaultSearches.forEach { search ->
+            searchFrequencies[search] = (10 - defaultSearches.indexOf(search))
+        }
+        updateSearchFrequencies("")
     }
 
     fun performSearch(query: String) {
